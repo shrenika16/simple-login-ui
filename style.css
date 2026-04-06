@@ -1,83 +1,109 @@
-body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#667eea,#764ba2);
+// Navigation
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+const registerBtn = document.getElementById("goRegister");
+
+if(registerBtn){
+registerBtn.addEventListener("click", function(){
+window.location.href="registration.html";
+});
 }
 
-.login-container{
-    background:white;
-    padding:35px;
-    width:340px;
-    border-radius:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+const loginBtn = document.getElementById("goLogin");
+
+if(loginBtn){
+loginBtn.addEventListener("click", function(){
+window.location.href="index.html";
+});
 }
 
-.login-container h2{
-    text-align:center;
-    margin-bottom:20px;
+
+// LOGIN VALIDATION
+
+const loginForm = document.getElementById("loginForm");
+
+if(loginForm){
+
+loginForm.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let email = document.getElementById("loginEmail").value;
+let password = document.getElementById("loginPassword").value;
+
+let emailError = document.getElementById("loginEmailError");
+let passwordError = document.getElementById("loginPasswordError");
+
+emailError.textContent="";
+passwordError.textContent="";
+
+let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+let isValid = true;
+
+if(!emailPattern.test(email)){
+emailError.textContent="Enter valid email";
+isValid = false;
 }
 
-form{
-    display:flex;
-    flex-direction:column;
+if(password.length < 6){
+passwordError.textContent="Password must be at least 6 characters";
+isValid = false;
 }
 
-label{
-    margin-top:10px;
-    font-weight:bold;
+if(isValid){
+alert("Login Successful");
 }
 
-input{
-    padding:10px;
-    margin-top:5px;
-    border:1px solid #ccc;
-    border-radius:5px;
+});
+
 }
 
-input:focus{
-    outline:none;
-    border:2px solid #007bff;
+
+// REGISTER VALIDATION
+
+const registerForm = document.getElementById("registerForm");
+
+if(registerForm){
+
+registerForm.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+let confirmPassword = document.getElementById("confirmPassword").value;
+
+let emailError = document.getElementById("emailError");
+let passwordError = document.getElementById("passwordError");
+let confirmError = document.getElementById("confirmError");
+
+emailError.textContent="";
+passwordError.textContent="";
+confirmError.textContent="";
+
+let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+let isValid = true;
+
+if(!emailPattern.test(email)){
+emailError.textContent="Invalid email format";
+isValid = false;
 }
 
-button{
-    margin-top:20px;
-    padding:10px;
-    background:#007bff;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    transition:0.3s;
+if(password.length < 6){
+passwordError.textContent="Password must be at least 6 characters";
+isValid = false;
 }
 
-button:hover{
-    background:#0056b3;
-    transform:scale(1.05);
+if(password !== confirmPassword){
+confirmError.textContent="Passwords do not match";
+isValid = false;
 }
 
-p{
-    text-align:center;
-    margin-top:15px;
+if(isValid){
+alert("Registration Successful");
 }
 
-a{
-    color:#007bff;
-    text-decoration:none;
-}
+});
 
-a:hover{
-    text-decoration:underline;
-}
-
-/* Mobile Responsive */
-
-@media(max-width:500px){
-    .login-container{
-        width:90%;
-    }
 }
