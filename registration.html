@@ -13,34 +13,36 @@
 
 <h2>Register</h2>
 
-<form>
+<form id="registerForm">
 
 <label>Full Name</label>
-<input type="text" placeholder="Enter your full name" required>
-<p class="error"></p>
+<input type="text" id="name" placeholder="Enter your full name" required>
+<p class="error" id="nameError"></p>
 
 <label>Email</label>
-<input type="email" placeholder="Enter your email" required>
-<p class="error"></p>
+<input type="email" id="email" placeholder="Enter your email" required>
+<p class="error" id="emailError"></p>
 
 <label>Password</label>
-<input type="password" placeholder="Enter password" required>
-<p class="error"></p>
+<input type="password" id="password" placeholder="Enter password" required>
+<p class="error" id="passwordError"></p>
 
 <label>Confirm Password</label>
-<input type="password" placeholder="Confirm password" required>
-<p class="error"></p>
+<input type="password" id="confirmPassword" placeholder="Confirm password" required>
+<p class="error" id="confirmError"></p>
 
 <button type="submit">Register</button>
 
 <p>
 Already have an account?
-<a href="index.html">Login</a>
+<a href="#" id="goLogin">Login</a>
 </p>
 
 </form>
 
 </div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
