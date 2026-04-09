@@ -13,7 +13,7 @@ const completedTasksEl = document.getElementById("completedTasks");
 const pendingTasksEl = document.getElementById("pendingTasks");
 
 // Task storage (frontend state)
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 // Show modal
 addTaskBtn.addEventListener("click", () => {
@@ -74,6 +74,8 @@ function renderTasks() {
   totalTasksEl.textContent = tasks.length;
   completedTasksEl.textContent = completedCount;
   pendingTasksEl.textContent = tasks.length - completedCount;
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
 
   // Add event listeners for buttons after rendering
   document.querySelectorAll(".complete-btn").forEach((btn) => {
@@ -92,3 +94,4 @@ function renderTasks() {
     });
   });
 }
+renderTasks();
