@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>MyApp</h2>
+    <ul>
+      <li>Dashboard</li>
+      <li>Tasks</li>
+      <li>Logout</li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Welcome Section -->
+    <div class="welcome">
+      <h1>Welcome User 👋</h1>
+      <p>This is your dashboard</p>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="cards">
+      <div class="card" id="totalTasksCard">
+        <h3>Total Tasks</h3>
+        <p id="totalTasks">0</p>
+      </div>
+      <div class="card" id="completedTasksCard">
+        <h3>Completed</h3>
+        <p id="completedTasks">0</p>
+      </div>
+      <div class="card" id="pendingTasksCard">
+        <h3>Pending</h3>
+        <p id="pendingTasks">0</p>
+      </div>
+    </div>
+
+    <!-- Task Section -->
+    <div class="task-section">
+      <div class="task-header">
+        <h2>Tasks</h2>
+        <button id="addTaskBtn">Add Task</button>
+      </div>
+      <div id="taskList" class="task-list">
+        <!-- Task cards will appear here -->
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Task Modal -->
+<div id="taskModal" class="modal-overlay" style="display:none;">
+  <div class="modal-content">
+    <h2>Add Task</h2>
+    <input type="text" id="taskTitle" placeholder="Task Title">
+    <textarea id="taskDesc" placeholder="Task Description"></textarea>
+    <div style="text-align:right;">
+      <button class="save-btn" id="saveTaskBtn">Save</button>
+      <button class="cancel-btn" id="cancelTaskBtn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+
+</html>
